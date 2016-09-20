@@ -38,11 +38,7 @@ int q2evenfib(){
   return evenfibhelp(0 , 1 , 1, 0);
 }
 
-int q3largestpf(){
-  return largestpfhelp(2, 600851475143);
-}
-
-int largestpfhelp(int curr, long x){
+int largestpfhelp(int curr, long long x){
 
   if (x%curr == 0){
     if (x/curr == 1){
@@ -52,6 +48,12 @@ int largestpfhelp(int curr, long x){
   }
   return largestpfhelp(curr+1, x);
 }
+
+
+int q3largestpf(){
+  return largestpfhelp(2, 600851475143);
+}
+
 
 int main(){
   printf("Q1 answer: %d \n", q1mult35());
