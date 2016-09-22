@@ -10,7 +10,7 @@ Work0: Eul up your skills!
 int q1mult35(){
   int sum = 0;
   int count = 3;
-  for (count ; count <1000 ; count++){
+  for (count;count <1000 ; count++){
     if ((count%3 == 0) || (count%5 == 0)){
       sum += count;
     }
@@ -54,26 +54,59 @@ int q3largestpf(){
   return largestpfhelp(2, 600851475143);
 }
 
-char largestpalhelper(int x){
+/*char largestpalhelper(int x){
   int y = x;
   int res = 0;
   int h = 10;
-  while( y > 0){
+  while( y > 10){
     res += (y%h)*(h/10);
     y = y/h;
     h*=10;
   }
+  res+=y;
   printf("%d ", res);
   return x==res;
 }
+*/
 
-//int q4largestpal(){
+char largestpalhelper(int x){
+  int y = x;
+  int res = 0;
+  int z = y;
+  while (z > 10){
+    res *= 10;
+    res += z%10;
+    z /= 10;
+  }
+  res*=10;
+  res+=z;
+  // printf("%d", res);
+  return res == x;
+}
+
+int q4largestpal(){
+  int champ;
+  int a = 100;
+  int b = 100;
+  for (a; a<999 ; a++){
+    while (b<999){
+      if (largestpalhelper(a*b)){
+	champ = a*b;
+	//	printf("%d", champ);
+      }
+      b+=1;
+    }
+    b = 100;
+  }
+  return champ;
+}
   
 
 int main(){
   printf("Q1 answer: %d \n", q1mult35());
   printf("Q2 answer: %d \n", q2evenfib());
   printf("Q3 answer: %d \n", q3largestpf());
-  printf("%d \n", largestpalhelper(1234));
-  printf("%d \n", largestpalhelper(9009));
+  // printf("%d \n", largestpalhelper(1234));
+  // printf("%d \n", largestpalhelper(9009));
+  printf("Q4 answer: %d \n", q4largestpal());
 }
