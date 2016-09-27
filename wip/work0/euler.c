@@ -90,7 +90,7 @@ int q4largestpal(){
   int b = 100;
   for (a; a<999 ; a++){
     while (b<999){
-      if (largestpalhelper(a*b)){
+      if (largestpalhelper(a*b) && a*b > champ){
 	champ = a*b;
 	//	printf("%d", champ);
       }
@@ -100,6 +100,25 @@ int q4largestpal(){
   }
   return champ;
 }
+
+char smalmulthelper(int x){
+  int div = 19;
+  for (div ; div>1 ; div--){
+    if (x%div != 0){
+      return 0;
+    }
+  }
+  return 1;
+}
+
+int q5smalmult(){
+  int mult = 20;
+  while(!smalmulthelper(mult)){
+    mult+=20;
+  }
+  return mult;
+}
+  
   
 
 int main(){
@@ -107,6 +126,7 @@ int main(){
   printf("Q2 answer: %d \n", q2evenfib());
   printf("Q3 answer: %d \n", q3largestpf());
   // printf("%d \n", largestpalhelper(1234));
-  // printf("%d \n", largestpalhelper(9009));
+  //printf("%d \n", largestpalhelper(906609));
   printf("Q4 answer: %d \n", q4largestpal());
+  printf("Q5 answer: %d \n", q5smalmult());
 }
