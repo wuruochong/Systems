@@ -103,6 +103,6 @@ int main(){
   printf("compare: %d", strcmp(c,e));
 
   printf("\nTesting mystrchr\n");
-  char f[100] = "This is a test";
-  printf("Finding t in f: %s", *(mystrchr(f, 't')));
+  char f[100] = "This is a tes";
+  printf("Finding t in f: %c at position %d", *(mystrchr(f, 't')), mystrchr(f,'t'));
 }
