@@ -43,17 +43,36 @@ char *mystrncat(char d[], char s[], int n){
   return d;
 }
 
+int max(int a, int b){
+  if (a>b){
+    return a;
+  }
+  return b;
+}
+
+
 int mystrcmp(char a[], char b[]){
   int count = 0;
-  while (count<mystrlen(a)){
+  while (count<max(mystrlen(a),mystrlen(b))){
     if ((a[count] - b[count])!=0){
+      printf("%d %d\n",a[count],b[count]);
       return a[count] - b[count];
     }
     count+=1;
   }
   return 0;
 }
-  
+
+char *mystrchr(char a[], char b){
+  while(*a){
+    if (*a == b){
+      return a;
+    }
+    a+=1;
+  }
+  return 0;
+}
+
 
 int main(){
   printf("Testing mystrlen\n");
@@ -80,6 +99,10 @@ int main(){
 
   printf("\nTesting mystrcmp\n");
   char c[100] = "Hello";
-  char e[101] = "Hello";
-  printf("compare: %d", mystrcmp(c,d));
+  char e[101] = "Helloa";
+  printf("compare: %d", strcmp(c,e));
+
+  printf("\nTesting mystrchr\n");
+  char f[100] = "This is a test";
+  printf("Finding t in f: %s", *(mystrchr(f, 't')));
 }
