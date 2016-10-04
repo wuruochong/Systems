@@ -166,10 +166,11 @@ int main(){
 
   printf("\nTesting mystrchr\n");
   char f[100] = "This is a tes";
-  printf("Finding t in f: %c at position %d", *(mystrchr(f, 't')), mystrchr(f,'t'));
+  printf("Finding t in f: %c at position %li", *(mystrchr(f, 't')), mystrchr(f,'t'));
 
   printf("\nTesting mystrstr\n");
   char g[100] = "How are you?";
   char h[10] = "are";
-  printf("Finding are in g: %d", mystrstr(g,h)); 
+  printf("Finding are in g: %li\n", mystrstr(g,h));
+  return 0;
 }
